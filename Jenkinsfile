@@ -20,15 +20,28 @@ pipeline {
 
         stage('Run Script') {
             steps {
-                bat """
-                "C:\\Program Files\\Python314\\python.exe" script\\app.py ^
-                --name ${params.NAME} ^
-                --grade ${params.GRADE} ^
-                --bonus ${params.BONUS} ^
-                --exam_date ${params.EXAM_DATE}
-                """
+                script {
+                    if (params.RUN_ON == 'built-in') {
+                        bat """
+                        "C:\\Program Files\\Python314\\python.exe" script\\app.py ^
+                        --name ${params.NAME} ^
+                        --grade ${params.GRADE} ^
+                        --bonus ${params.BONUS} ^
+                        --exam_date ${params.EXAM_DATE}
+                        """
+                    } else {
+                        sh """
+                        python3 script/app.py \
+                        --name ${params.NAME} \
+                        --grade ${params.GRADE} \
+                        --bonus ${params.BONUS} \
+                        --exam_date ${params.EXAM_DATE}
+                        """
+                    }
+                }
             }
         }
+
 
         stage('Archive Artifacts') {
             steps {

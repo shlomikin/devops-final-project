@@ -21,7 +21,7 @@ pipeline {
         stage('Run Script') {
             steps {
                 bat """
-                python script\\app.py ^
+                py script\\app.py ^
                 --name ${params.NAME} ^
                 --grade ${params.GRADE} ^
                 --bonus ${params.BONUS} ^

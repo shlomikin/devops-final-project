@@ -4,7 +4,7 @@ pipeline {
     }
 
     parameters {
-        choice(name: 'RUN_ON', choices: ['master', 'linux'], description: 'Select where to run')
+        choice(name: 'RUN_ON', choices: ['built-in', 'linux'], description: 'Select where to run')
         string(name: 'NAME', defaultValue: 'Shlomi', description: 'Student name')
         string(name: 'GRADE', defaultValue: '70', description: 'Grade (0-100)')
         booleanParam(name: 'BONUS', defaultValue: false, description: 'Apply bonus?')

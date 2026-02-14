@@ -92,6 +92,7 @@ html = f"""
 <body>
     <div class="card">
         <h2>Student Grade Report</h2>
+        <h1 style="color:red;">TEST STYLE</h1>
         <table>
             <tr><td><strong>Name:</strong></td><td>{args.name}</td></tr>
             <tr><td><strong>Original Grade:</strong></td><td>{args.grade}</td></tr>
